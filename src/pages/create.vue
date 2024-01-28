@@ -1,5 +1,10 @@
-<script setup></script>
+<script setup>
+import navBar from "../components/navbar.vue";
+</script>
 
-<template>CREATE Componenent</template>
+<template>
+    <navBar />
+CREATE Componenent
+</template>
 
 <style scoped></style>

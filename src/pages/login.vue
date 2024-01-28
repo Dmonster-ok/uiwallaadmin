@@ -35,15 +35,8 @@ const handleTestLogin = async () => {
   localStorage.setItem("token", "test");
 
   // redirect to dashboard
-  window.location.href = "/";
+  window.location.href = "/dashboard";
 };
-
-//let error;
-//if (flag) {
-//  error = ref('Invalid Username or Password!!');
-//} else {
-//  error = ref('Welcome to UIWalla')
-//}
 </script>
 
 <template>
@@ -75,10 +68,7 @@ const handleTestLogin = async () => {
           <div class="pl-2 text-red-500" v-if="error">{{ error }}</div>
           <div class="pl-2 text-green-500" v-if="success">{{ success }}</div>
         </div>
-        <!-- <button @click="handleLogin" class="btn-secondary">Login</button> -->
-        <button @click="handleTestLogin" class="btn-secondary">
-          TestLogin
-        </button>
+        <button @click="handleTestLogin" class="btn-secondary">TestLogin</button>
       </div>
     </div>
   </div>
