@@ -7,7 +7,6 @@ if (localStorage.getItem("token")) {
   loggedIn.value = true;
 } else {
   loggedIn.value = false;
-
   if (window.location.pathname !== "/login") {
     window.location.href = "/login";
   }
