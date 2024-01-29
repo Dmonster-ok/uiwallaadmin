@@ -20,3 +20,11 @@
     @apply border border-[#5985b2] hover:border-transparent rounded;
     @apply transition;
 }
+
+*::-webkit-scrollbar{
+    width: 0.3vw;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: #ffac30;
+    border-radius: 100px;
+}

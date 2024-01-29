@@ -40,9 +40,7 @@ const handleTestLogin = async () => {
 </script>
 
 <template>
-  <div
-    class="w-screen h-screen bg-transparent flex items-center justify-center"
-  >
+  <div class="w-full h-full flex items-center justify-center">
     <div class="login-card flex flex-row items-center gap-5 backdrop-blur">
       <div class="login-img w-96 h-96 rounded-lg"></div>
       <div class="buttons flex flex-col gap-8 ml-5">
