@@ -67,6 +67,7 @@ const handleTestLogin = async () => {
           <div class="pl-2 text-green-500" v-if="success">{{ success }}</div>
         </div>
         <button @click="handleTestLogin" class="btn-secondary">TestLogin</button>
+        <!-- <button @click="handleLogin" class="btn-secondary">Login</button> -->
       </div>
     </div>
   </div>

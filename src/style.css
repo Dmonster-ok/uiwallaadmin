@@ -2,18 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg{
+.bg {
     background-image: url(/bg.svg);
     background-size: 110%;
     background-position: top;
     background-repeat: no-repeat;
 }
 
-*{
+* {
     @apply text-slate-100;
 }
 
-.btn-secondary{
+.card {
+    @apply bg-[#0a0b147b] backdrop-blur-xl border-2 border-[#232637] rounded-lg p-2 h-[27rem];
+}
+
+.card-title {
+    @apply text-xl p-2 rounded-md bg-[#232637];
+}
+
+.btn-pirmary {
+    @apply w-full py-2 px-4;
+    @apply font-semibold text-[#ffac30] hover:text-[#0a0b14] text-lg;
+    @apply bg-transparent hover:bg-[#ffac30];
+    @apply border border-[#ffac30] hover:border-transparent rounded;
+    @apply transition;
+}
+
+.btn-secondary {
     @apply w-full py-2 px-4;
     @apply font-semibold text-[#5985b2] hover:text-slate-100 text-lg;
     @apply bg-transparent hover:bg-[#2b4e71];
@@ -21,10 +37,11 @@
     @apply transition;
 }
 
-*::-webkit-scrollbar{
+*::-webkit-scrollbar {
     width: 0.3vw;
 }
-*::-webkit-scrollbar-thumb{
+
+*::-webkit-scrollbar-thumb {
     background-color: #ffac30;
     border-radius: 100px;
 }

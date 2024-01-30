@@ -22,9 +22,9 @@ let pagetitle = ref('Dashboard')
         </button>
       </div>
 
-      <div class="menu-items hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-        <a class="menu-item" href="#" tabindex="-1" role="menuitem">Dashboard</a>
-        <a class="menu-item" href="#" tabindex="-1" role="menuitem">Create</a>
+      <div class="menu-items" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+        <a class="menu-item" href="/dashboard" tabindex="-1" role="menuitem">Dashboard</a>
+        <a class="menu-item" href="/create" tabindex="-1" role="menuitem">Create</a>
         <button class="menu-item hover:text-red-600 hover:transition" tabindex="-1" role="menuitem">Logout</button>
       </div>
     </div>

@@ -62,14 +62,7 @@ if (!localStorage.getItem("token")) {
 </template>
 
 <style scoped>
-.card {
-  @apply bg-[#0a0b147b] backdrop-blur-xl border-2 border-[#232637] rounded-lg p-2 h-[27rem];
-}
-
 .tab{
   @apply bg-[#0a0b14] w-40 text-center rounded-md py-2
-}
-.card-title {
-  @apply text-xl p-2 rounded-md bg-[#232637];
 }
 </style>
