@@ -2,11 +2,10 @@
 import navBar from "../components/navbar.vue";
 import Componenentlist from "../components/components.vue";
 import Userlist from "../components/users.vue";
-import Catlist from "../components/categories.vue";
-import {ref} from "vue";
+import { ref } from "vue";
 
-let activeTab = ref("Users");
-let count = ref(0);
+let Ucount = ref(0);
+let Ccount = ref(0);
 
 if (!localStorage.getItem("token")) {
   window.location.href = "/";
@@ -19,37 +18,43 @@ if (!localStorage.getItem("token")) {
     <div class="h-full flex flex-col gap-2 p-2">
       <div class="flex-grow-0 flex-none flex gap-2">
         <div class="card w-1/4 flex flex-col">
-          <div class="card-title flex flex-row justify-evenly">
-            <div class="tab">Users</div>
-            <div class="tab">Components</div>
+          <div class="card-title flex justify-between items-center">
+            <p>Users</p>
           </div>
           <div class="h-full flex flex-col gap-4 justify-center items-center text-2xl tracking-wider">
-            Total {{ activeTab }}
+            Total Users
             <div class="text-6xl text-[#5d6591]">
-              {{ count }}
+              {{ Ucount }}
             </div>
           </div>
         </div>
-        <div class="card w-1/4">
+        <div class="card w-1/4 flex flex-col">
           <div class="card-title flex justify-between items-center">
-            <p>List of Category</p>
-            <i class="material-icons mr-5">add</i>
+            <p>Components</p>
           </div>
-          <div class=" h-full mt-1 overflow-y-scroll p-1 ">
-            <Catlist />
+          <div class="h-full flex flex-col gap-4 justify-center items-center text-2xl tracking-wider">
+            Total Components
+            <div class="text-6xl text-[#5d6591]">
+              {{ Ccount }}
+            </div>
           </div>
         </div>
-        <div class="card w-1/4"></div>
-        <div class="card w-1/4"></div>
-      </div>
-      <div class="flex-none flex gap-2">
-        <div class="card w-1/3 flex flex-col">
+        <div class="card w-2/4 flex flex-col">
           <p class="card-title">Registered Users</p>
           <div class=" h-full mt-1 overflow-y-scroll p-1 ">
             <Userlist />
           </div>
         </div>
-        <div class="card w-2/3 flex flex-col">
+      </div>
+      <div class="flex-none flex gap-2">
+        <div class="card w-1/5 flex flex-col">
+          <div class="card-title flex justify-between items-center">
+            <p>List of Category</p>
+          </div>
+          <div class="h-full mt-1 overflow-y-scroll p-1 ">
+          </div>
+        </div>
+        <div class="card w-4/5 flex flex-col">
           <p class="card-title">List of Components</p>
           <div class=" h-full mt-1 overflow-y-scroll p-1 ">
             <Componenentlist />
@@ -58,11 +63,6 @@ if (!localStorage.getItem("token")) {
       </div>
     </div>
   </div>
-  <!-- <router-link to="/create" class="text-blue-500">Create Componenent</router-link> -->
 </template>
 
-<style scoped>
-.tab{
-  @apply bg-[#0a0b14] w-40 text-center rounded-md py-2
-}
-</style>
+<style scoped></style>

@@ -39,6 +39,7 @@
 
 *::-webkit-scrollbar {
     width: 0.3vw;
+    height: 0.6vh;
 }
 
 *::-webkit-scrollbar-thumb {

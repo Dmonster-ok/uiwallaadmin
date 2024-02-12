@@ -8,13 +8,12 @@ import dashboard from './pages/dashboard.vue'
 import login from './pages/login.vue'
 import create from './pages/create.vue'
 
-
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', component: login },
-        { path: '/dashboard', component: dashboard },
-        { path: '/create', component: create },
+        { path: '/',name: 'Login', component: login },
+        { path: '/dashboard',name:'Dashboard', component: dashboard },
+        { path: '/create',name:'Create', component: create }
     ]
 });
 

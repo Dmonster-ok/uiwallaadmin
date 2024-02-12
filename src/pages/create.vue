@@ -1,5 +1,49 @@
 <script setup>
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import navBar from "../components/navbar.vue";
+import { ref, watch } from "vue";
+
+const htmlcode = ref('');
+const csscode = ref('');
+const jscode = ref('');
+
+
+
+function display(html,css,js) {
+    const genHTML = ref(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+                background: transparent;
+                color: white;
+            }
+            body{
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            ${css}
+        <\/style>
+    </head>
+    <body>
+        ${html}
+        <script>
+        ${js}
+        <\/script>
+    <\/body>
+    <\/html>
+    `);
+    result = genHTML;
+}
+
 </script>
 
 <template>
@@ -11,31 +55,31 @@ import navBar from "../components/navbar.vue";
                     <div class="card-title flex justify-center items-center">
                         <p>HTML</p>
                     </div>
-                    <textarea name="" id="" class="codespace"></textarea>
+                    <textarea id="htmlarea" v-model="htmlcode" class="codespace" />
                 </div>
                 <div class="card w-full flex flex-col gap-2">
                     <div class="card-title flex justify-center items-center">
                         <p>CSS</p>
                     </div>
-                    <textarea name="" id="" class="codespace"></textarea>
+                    <textarea id="cssarea" v-model="csscode" class="codespace" />
                 </div>
                 <div class="card w-full flex flex-col gap-2">
                     <div class="card-title flex justify-center items-center">
                         <p>JS</p>
                     </div>
-                    <textarea name="" id="" class="codespace"></textarea>
+                    <textarea id="jsarea" v-model="jscode" class="codespace" />
                 </div>
             </div>
             <div class="flex flex-row gap-2">
                 <div class="card w-4/5">
-                    <iframe src="" class="w-full h-full" frameborder="0"></iframe>
+                    <iframe :srcdoc="genHTML" class="w-full h-full rounded-md" frameborder="0"></iframe>
                 </div>
                 <div class="card w-1/5 flex flex-col justify-between">
                     <div class="flex flex-col p-4">
                         <label for="title" class="text-lg tracking-widest">Title</label>
                         <input type="text" class="input-fl w-full" id="title" placeholder="Name of component">
-                        
-                        <label for="cat" class="text-lg tracking-widest">Select Category</label>
+
+                        <label for="cat" class="text-lg tracking-widest mt-4">Select Category</label>
                         <button id="cat"></button>
                     </div>
                     <button class="btn-pirmary">Create</button>
@@ -46,15 +90,16 @@ import navBar from "../components/navbar.vue";
 </template>
 
 <style scoped>
-.codespace{
-    @apply h-full resize-x rounded-md p-2 bg-[#1f213955] ;
-}
-.input-fl {
-  @apply bg-[#232637] align-middle;
-  @apply px-4 py-2;
-  @apply rounded-md border-2 border-[#2b4e7100];
-  @apply focus:outline-none focus:border-[#2b4e71];
-  @apply transition;
+.codespace {
+    @apply h-full resize-x rounded-md p-2 bg-[#1f213955];
+    @apply border-2 border-[#2b4e7100] focus:outline-none focus:border-[#2b4e71] transition;
 }
 
+.input-fl {
+    @apply bg-[#232637] align-middle;
+    @apply px-4 py-2;
+    @apply rounded-md border-2 border-[#2b4e7100];
+    @apply focus:outline-none focus:border-[#2b4e71];
+    @apply transition;
+}
 </style>
