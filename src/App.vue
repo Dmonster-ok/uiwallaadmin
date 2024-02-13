@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from "vue";
-
 let loggedIn = ref(false);
 
 if (localStorage.getItem("token")) {

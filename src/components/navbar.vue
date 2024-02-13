@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { useRoute } from 'vue-router';
 

@@ -1,8 +1,8 @@
 <script setup>
+import { ref } from "vue";
 import navBar from "../components/navbar.vue";
 import Componenentlist from "../components/components.vue";
 import Userlist from "../components/users.vue";
-import { ref } from "vue";
 
 let Ucount = ref(0);
 let Ccount = ref(0);

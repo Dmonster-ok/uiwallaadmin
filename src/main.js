@@ -2,6 +2,7 @@ import 'material-icons/iconfont/material-icons.css'
 import './style.css'
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import { ref } from "vue";
 
 import App from './App.vue'
 import dashboard from './pages/dashboard.vue'
@@ -13,7 +14,7 @@ const router = createRouter({
     routes: [
         { path: '/',name: 'Login', component: login },
         { path: '/dashboard',name:'Dashboard', component: dashboard },
-        { path: '/create',name:'Create', component: create }
+        { path: '/create',name:'Create', component: create },
     ]
 });
 

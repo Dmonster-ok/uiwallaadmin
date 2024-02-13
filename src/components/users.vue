@@ -1,6 +1,5 @@
 <script setup>
-import {ref} from "vue";
-
+import { ref } from "vue";
 let username = ref("username")
 
 </script>
