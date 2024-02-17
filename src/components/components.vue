@@ -1,34 +1,37 @@
 <script setup>
-import { ref } from "vue";
+import { ref,onBeforeMount } from "vue";
 import axios from "axios";
 
-let items = ref([]);
+let data = ref([]);
+let componentsCount = ref(0);
 let error = ref(null);
-let isFatching = false;
+let isLoading = ref(true);
 
-
-const fetchApiData = async()=>{
-    isFatching = true;
-    error = null;
-    
+const fetchData = async () =>{
+    isLoading = true;
     try {
-        const response = await axios.get("http://localhost:3000/component");
-        items = response.data
+        const response = await axios.get('http://localhost:3000/component');
+        data.value = response.data;
+        console.log("hi");
     } catch (err) {
-        error = err.message;
-        console.error("Error fetching data: ",err);
+        console.error("Error fetching data",err);
+        error.value = err
     }finally{
-        isFatching = false;
+        isLoading = false;
     }
 }
 
+onBeforeMount(() => {
+    fetchData()
+})
 
 </script>
 
 <template>
-    <div v-for="n in 100" class="w-full border">
-        {{ n }} component
+    <div v-for="n in data" class="w-full border">
+        {{ n.title }}
     </div>
+        
 </template>
 
 <style scoped></style>

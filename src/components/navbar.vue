@@ -1,6 +1,7 @@
 <script setup>
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { useRoute } from 'vue-router';
+import { ref } from "vue";
 
 const route = useRoute();
 let pagetitle = ref(route.name)

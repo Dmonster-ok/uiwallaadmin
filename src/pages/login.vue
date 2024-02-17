@@ -24,19 +24,14 @@ const handleLogin = async () => {
     console.log("Login successful:", response.data);
     localStorage.setItem("token", response.data.token);
     success.value = "Login successful";
+    window.location.href = "/dashboard";
+    
   } catch (err) {
     error.value = "Invalid email or Password";
     console.error("Login failed:", err);
   }
 };
 
-const handleTestLogin = async () => {
-  success.value = "Login successful";
-  localStorage.setItem("token", "test");
-
-  // redirect to dashboard
-  window.location.href = "/dashboard";
-};
 </script>
 
 <template>
@@ -66,8 +61,8 @@ const handleTestLogin = async () => {
           <div class="pl-2 text-red-500" v-if="error">{{ error }}</div>
           <div class="pl-2 text-green-500" v-if="success">{{ success }}</div>
         </div>
-        <button @click="handleTestLogin" class="btn-secondary">TestLogin</button>
-        <!-- <button @click="handleLogin" class="btn-secondary">Login</button> -->
+        <!-- <button @click="handleTestLogin" class="btn-secondary">TestLogin</button> -->
+        <button @click="handleLogin" class="btn-secondary">Login</button>
       </div>
     </div>
   </div>

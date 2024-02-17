@@ -6,10 +6,7 @@ import { ref, watch } from "vue";
 const htmlcode = ref('');
 const csscode = ref('');
 const jscode = ref('');
-
-
-
-function display(html,css,js) {
+function display(html, css, js) {
     const genHTML = ref(`
     <!DOCTYPE html>
     <html lang="en">
@@ -43,7 +40,6 @@ function display(html,css,js) {
     `);
     result = genHTML;
 }
-
 </script>
 
 <template>
@@ -72,7 +68,7 @@ function display(html,css,js) {
             </div>
             <div class="flex flex-row gap-2">
                 <div class="card w-4/5">
-                    <iframe :srcdoc="genHTML" class="w-full h-full rounded-md" frameborder="0"></iframe>
+                    <iframe class="w-full h-full rounded-md" frameborder="0"></iframe>
                 </div>
                 <div class="card w-1/5 flex flex-col justify-between">
                     <div class="flex flex-col p-4">
