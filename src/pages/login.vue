@@ -9,9 +9,7 @@ let success = ref("");
 
 axios.defaults.baseURL = "http://localhost:3000";
 
-if (localStorage.getItem("token")) {
-  // window.location.href = "/dashboard";
-}
+
 
 const handleLogin = async () => {
   console.log("OK", email.value, password.value);
@@ -31,6 +29,7 @@ const handleLogin = async () => {
     console.error("Login failed:", err);
   }
 };
+
 
 </script>
 
