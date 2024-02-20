@@ -3,6 +3,7 @@ import { ref } from "vue";
 import navBar from "../components/navbar.vue";
 import Componenentlist from "../components/components.vue";
 import Userlist from "../components/users.vue";
+import Categorylist from "../components/category.vue";
 
 let Ucount = ref(0);
 let Ccount = ref(0);
@@ -51,7 +52,8 @@ if (!localStorage.getItem("token")) {
           <div class="card-title flex justify-between items-center">
             <p>List of Category</p>
           </div>
-          <div class="h-full mt-1 overflow-y-scroll p-1 ">
+            <div class="h-full mt-1 overflow-y-scroll p-1 ">
+              <Categorylist />
           </div>
         </div>
         <div class="card w-4/5 flex flex-col">
