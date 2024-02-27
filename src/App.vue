@@ -19,9 +19,7 @@ const handleLogout = () => {
 </script>
 
 <template>
-  <div class="w-dvw h-dvh flex flex-col">
-    <div class="flex-auto">
-      <router-view></router-view>
-    </div>
+  <div class="h-dvh flex flex-col">
+    <router-view></router-view>
   </div>
 </template>

@@ -17,6 +17,7 @@ const fetchUserData = async () => {
         const response = await axios.get("http://localhost:3000/users", {
             headers: { Authorization: "Bearer " + token.value },
         });
+        localStorage.setItem("Ucount", response.data.length);
         data.value = response.data;
     } catch (err) {
         console.error("Error fetching data", err);
