@@ -60,7 +60,7 @@ if (!localStorage.getItem("token")) {
           <div class="card-title flex items-center justify-between">List of Components 
             <a class="material-icons text-[#ffac30]" href="/search">search</a>
           </div>
-          <div class=" h-full mt-1 overflow-y-scroll p-1 flex flex-wrap gap-4 justify-evenly">
+          <div class="h-full mt-1 overflow-y-scroll p-2 flex flex-wrap gap-4 justify-center">
             <Componenentlist />
           </div>
         </div>
