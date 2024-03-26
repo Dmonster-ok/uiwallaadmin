@@ -38,6 +38,7 @@ onBeforeMount(() => {
 
 <template>
     <div v-for="component in data" class="w-fit rounded-md border p-1">
+        
         <div class="flex flex-col">
             <iframe frameborder="0" class="h-56" scrolling="no" :src="component.link"></iframe>
             <div class="w-full flex flex-row px-4 py-2 justify-between items-center bg-[#161722]">

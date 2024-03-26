@@ -6,10 +6,10 @@ import axios from "axios";
 const title = ref("");
 const id = ref("");
 const category = ref("");
-let code = ref([``,``,``]) 
-// const htmlcode = ref(``);
-// const csscode = ref(``);
-// const jscode = ref(``);
+let code = ref(['', '', ''])
+const htmlcode = ref(``);
+const csscode = ref(``);
+const jscode = ref(``);
 const isCreated = ref(false);
 
 function createComponent() {
@@ -28,7 +28,7 @@ function createComponent() {
         })
         isCreated.value = true;
     }
-    else{
+    else {
         alert("fileds are empty")
     }
 }
@@ -49,43 +49,9 @@ function updateComponent() {
 function addindent(event) {
     console.log(event);
     event.preventDefault();
+    
 }
-
-function display(html, css, js) {
-    const genHTML = ref(`
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            *{
-                margin: 0px;
-                padding: 0px;
-                background: transparent;
-                color: white;
-            }
-            body{
-                width: 100vw;
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            ${css}
-        <\/style>
-    </head>
-    <body>
-        ${html}
-        <script>
-        ${js}
-        <\/script>
-    <\/body>
-    <\/html>
-    `);
-    result = genHTML;
-}
-
+const display = ref("<h1>Hellow</h1>");
 
 </script>
 
@@ -98,7 +64,8 @@ function display(html, css, js) {
                     <div class="card-title flex justify-center items-center">
                         <p>HTML</p>
                     </div>
-                    <textarea id="htmlarea" v-model="htmlcode" class="codespace" tabindex="-1" @keydown.tab="addindent" />
+                    <textarea id="htmlarea" v-model="htmlcode" class="codespace" tabindex="-1"
+                        @keydown.tab="addindent" />
                 </div>
                 <div class="card w-full flex flex-col gap-2">
                     <div class="card-title flex justify-center items-center">
@@ -114,7 +81,7 @@ function display(html, css, js) {
                 </div>
             </div>
             <div class="h-1/2 flex flex-row gap-2">
-                <iframe class="card w-4/5 h-full" frameborder="0"></iframe>
+                <iframe class="card w-4/5 h-full" frameborder="0" :srcdoc="display"></iframe>
                 <div class="card w-1/5 flex flex-col justify-between">
                     <div class="flex flex-col p-4 gap-y-2">
                         <label for="title" class="text-lg tracking-widest">Title</label>
