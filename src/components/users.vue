@@ -3,14 +3,14 @@ import { ref, onBeforeMount } from "vue";
 import axios from "axios";
 
 
-let photo = ref(["public/pfp/p1.png",
-    "public/pfp/p2.png",
-    "public/pfp/p3.png",
-    "public/pfp/p4.png",
-    "public/pfp/p5.png",
-    "public/pfp/p6.png",
-    "public/pfp/p7.png",
-    "public/pfp/p8.png"]);
+let photo = ref(["/pfp/p1.png",
+    "/pfp/p2.png",
+    "/pfp/p3.png",
+    "/pfp/p4.png",
+    "/pfp/p5.png",
+    "/pfp/p6.png",
+    "/pfp/p7.png",
+    "/pfp/p8.png"]);
 let data = ref([]);
 let usersCount = ref(0);
 let error = ref(null);
@@ -33,16 +33,15 @@ const fetchUserData = async () => {
     }
 };
 
-const deleteUser = async (id) => {
+const deleteUser = async (email) => {
     try{
-        await axios.get("http://localhost:3000/users/delete/" + id, {
-            headers: { Authorization: "Bearer " + token.value },
-        });
+        await axios.get("http://localhost:3000/delete-user?email=" + email )
+        location.reload(true);
     } catch{
         console.error("Error deleting user", err);
         error.value = err;
     }
-    console.log(id);
+    console.log(email);
 };
 
 onBeforeMount(() => {
@@ -60,7 +59,7 @@ onBeforeMount(() => {
                  <p class="text-slate-400">{{ user.email }}</p>
              </div>
            </div>
-            <button class="material-icons text-xl hover:text-[#ff0000]" @click="deleteUser(user._id)">person_remove</button>
+            <button class="material-icons text-xl hover:text-[#ff0000]" @click="deleteUser(user.email)">person_remove</button>
         </div>
     </div>
 </template>

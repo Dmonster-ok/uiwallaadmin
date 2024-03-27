@@ -1,4 +1,5 @@
 <script setup>
+import axios from "axios";
 import { ref } from "vue";
 import navBar from "../components/navbar.vue";
 import Componenentlist from "../components/components.vue";
@@ -8,15 +9,26 @@ import Categorylist from "../components/category.vue";
 let Ucount = localStorage.getItem("Ucount");
 let Ccount = localStorage.getItem("Ccount");
 
+const isOpen = ref(true)
+
+function closeModal() {
+  isOpen.value = false
+}
+function openModal() {
+  isOpen.value = true
+}
+
 if (!localStorage.getItem("token")) {
   window.location.href = "/";
 }
+
 </script>
 
 <template>
   <div class="w-full h-full flex flex-col">
     <navBar />
     <div class="h-full flex flex-col gap-2 p-1">
+
       <div class="flex-grow-0 flex-none flex gap-2">
         <div class="card w-1/4 flex flex-col">
           <div class="card-title flex justify-between items-center">
@@ -41,7 +53,9 @@ if (!localStorage.getItem("token")) {
           </div>
         </div>
         <div class="card w-2/4 flex flex-col">
-          <p class="card-title">Registered Users</p>
+          <div class="card-title flex items-center justify-between">Registered Users
+            <a class="material-icons text-[#ffac30]" href="/add-admin" >add</a>
+          </div>
           <div class=" h-full mt-1 overflow-y-scroll p-1 ">
             <Userlist />
           </div>
@@ -52,21 +66,23 @@ if (!localStorage.getItem("token")) {
           <div class="card-title flex justify-between items-center">
             <p>List of Category</p>
           </div>
-            <div class="h-full mt-1 overflow-y-scroll p-1 ">
-              <Categorylist />
+          <div class="h-full mt-1 overflow-y-scroll p-1 ">
+            <Categorylist />
           </div>
         </div>
         <div class="card w-4/5 flex flex-col">
-          <div class="card-title flex items-center justify-between">List of Components 
+          <div class="card-title flex items-center justify-between">List of Components
             <a class="material-icons text-[#ffac30]" href="/search">search</a>
           </div>
-          <div class="h-full mt-1 overflow-y-scroll p-2 flex flex-wrap gap-4 justify-center">
-            <Componenentlist />
-          </div>
+
+          <Componenentlist />
+
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
