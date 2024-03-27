@@ -18,17 +18,13 @@ function searchComponent() {
     })}
 }
 
-watch(query, () => {
-    searchComponent()
-});
-
 </script>
 
 <template>
     <div class="w-full h-full flex flex-col">
         <navBar />
         <div class="h-full flex flex-col gap-2 p-2 overflow-hidden">
-            <input type="search" placeholder="search" class="input-fl text-2xl" v-model="query">
+            <input type="search" placeholder="search" class="input-fl text-2xl" v-model="query" v-on:keypress.enter="searchComponent">
             <div class="box h-full overflow-y-auto flex-grow-0">
                 <!-- list -->
                 <div class=" w-full h-fit flex flex-wrap gap-4 p-2 justify-start">
