@@ -45,6 +45,9 @@ const updateComponent = async (id) => {
     window.location.href = '/update?id=' + id;
 }
 
+if (window.location.href == 'http://localhost:5173/dashboard') window.location.href = '/dashboard?page=1';
+
+
 const prev = () => {
     if (page > 1) {
         window.location.href = '/dashboard?page=' + (parseInt(page) - 1);
